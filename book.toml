@@ -1,6 +1,9 @@
 [book]
-authors = ["Alex Gandzha"]
+authors = ["Alex Ganja", "Alex Gegechkori"]
 language = "en"
 multilingual = false
 src = "src"
 title = "Holistic multithreading"
+
+[build]
+build-dir = "./docs"
