@@ -1,0 +1,6 @@
+[book]
+authors = ["Alex Gandzha"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Holistic multithreading"
