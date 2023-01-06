@@ -1,6 +1,8 @@
 # mdbook for book-holistic-multithreading
 mdbook source for book "Holistic multithreading"
 
+[online web book](https://agapeteo.github.io/book-holistic-multithreading/)
+
 install mdbook:
 
 ```
