@@ -1,6 +1,9 @@
 # Purpose
 Multithreading from top to bottom. From abstractions like concurrent hash maps to assembler instructions. General narrative when introducing a new concept: how and why this concept came to be. Only after that can we dive into details. We intend to provide references for people to dive deeper on particular topics.
 
+## Audience
+Who this book is for? We assume that you have a basic understanding of what an operating system is and a very basic understanding of computer hardware. We also assume that you have a basic knowledge of Java, C, C++, or Rust.
+
 # Introduction
 A simple example with one or two threads. What happens:
 * On the language level;
@@ -37,7 +40,7 @@ Coroutines and their cousins. Java virtual threads. How are these things impleme
 # Posix Threads
 
 # Languages
-Java, C++, Rust, JS/Python.
+Java, C, C++, Rust, JS/Python (only to critisize their lack of comprehensive threading support).
 
 # Test Hardware
 MBP Pro, Raspberry Pi, Pine64 SBC.
