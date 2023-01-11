@@ -1,10 +1,13 @@
 # Purpose
 
-Multithreading from top to bottom. From abstractions like concurrent hash maps to assembler instructions. General narrative when introducing a new concept: how and why this concept came to be. Only after that can we dive into details. We intend to provide references for people to dive deeper on particular topics.
+Multithreading from top to bottom. From abstractions like concurrent hash maps to assembler instructions.
+General narrative when introducing a new concept: how and why this concept came to be.
+Only after that can we dive into details. We intend to provide references for people to dive deeper on particular topics.
 
 ## Audience
 
-Who this book is for? We assume that you have a basic understanding of what an operating system is and a very basic understanding of computer hardware. We also assume that you have a basic knowledge of Java, C, C++, or Rust.
+Who this book is for? We assume that you have a basic understanding of what an operating system is and a very basic understanding of computer hardware.
+We also assume that you have a basic knowledge of Java, C, C++, or Rust.
 
 # Introduction
 
@@ -22,7 +25,8 @@ Theoretical basis for concurrency. Threading models, scheduling, safety and live
 
 # Operating system
 
-What is a Thread? Threads exists in an operating system. There's no reason to talk about threads outside of the OS. If ypu want threads on the bare metal you will end up implementing your own minimalistic OS.
+What is a Thread? Threads exists in an operating system. There's no reason to talk about threads outside of the OS.
+If ypu want threads on the bare metal you will end up implementing your own minimalistic OS.
 
 # Hardware
 
