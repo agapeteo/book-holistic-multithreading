@@ -80,7 +80,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="this-book.html"><strong aria-hidden="true">2.</strong> How this book is different</a></li><li class="chapter-item expanded "><a href="why.html" class="active"><strong aria-hidden="true">3.</strong> Why multithreading is important</a></li><li class="chapter-item expanded "><a href="languages.html"><strong aria-hidden="true">4.</strong> Langiages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="java.html"><strong aria-hidden="true">4.1.</strong> Java</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="this_book.html"><strong aria-hidden="true">1.1.</strong> How this book is different</a></li><li class="chapter-item expanded "><a href="why.html" class="active"><strong aria-hidden="true">1.2.</strong> Why multithreading is important</a></li><li class="chapter-item expanded "><a href="history.html"><strong aria-hidden="true">1.3.</strong> A brief history of thread</a></li></ol></li><li class="chapter-item expanded "><a href="languages.html"><strong aria-hidden="true">2.</strong> Concurrency and multithreading in practical languages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="java.html"><strong aria-hidden="true">2.1.</strong> Java</a></li><li class="chapter-item expanded "><a href="c.html"><strong aria-hidden="true">2.2.</strong> C</a></li><li class="chapter-item expanded "><a href="c++.html"><strong aria-hidden="true">2.3.</strong> C++</a></li><li class="chapter-item expanded "><a href="rust.html"><strong aria-hidden="true">2.4.</strong> Rust</a></li><li class="chapter-item expanded "><a href="golang.html"><strong aria-hidden="true">2.5.</strong> Go</a></li><li class="chapter-item expanded "><a href="python.html"><strong aria-hidden="true">2.6.</strong> Python</a></li><li class="chapter-item expanded "><a href="javascript.html"><strong aria-hidden="true">2.7.</strong> JavaScript</a></li></ol></li><li class="chapter-item expanded "><a href="threads_under_the_hood.html"><strong aria-hidden="true">3.</strong> Threads under the hood</a></li><li class="chapter-item expanded "><a href="critical_section.html"><strong aria-hidden="true">4.</strong> Critical section</a></li><li class="chapter-item expanded "><a href="atomics.html"><strong aria-hidden="true">5.</strong> Atimics and memory fences</a></li><li class="chapter-item expanded "><a href="communication.html"><strong aria-hidden="true">6.</strong> Thread communication</a></li><li class="chapter-item expanded "><a href="deadlocks.html"><strong aria-hidden="true">7.</strong> Deadlocks and live locks</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">8.</strong> Coroutines and async programming</a></li><li class="chapter-item expanded "><a href="testing.html"><strong aria-hidden="true">9.</strong> Debugging and testing</a></li><li class="chapter-item expanded "><a href="best_practices.html"><strong aria-hidden="true">10.</strong> Best practices</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -154,6 +154,7 @@ We also assume that you have a basic knowledge of Java, C, C++, or Rust.</p>
 <li>On the language level;</li>
 <li>On the OS level;</li>
 <li>On the hardware level.</li>
+<li>Sometimes you're using thread even when you are not aware of it. (Servlets example)</li>
 </ul>
 <p>The rest of the books is just a deeper and broader exploration of what we have just covered.</p>
 <h1 id="theory"><a class="header" href="#theory">Theory</a></h1>
@@ -183,11 +184,11 @@ If ypu want threads on the bare metal you will end up implementing your own mini
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="this-book.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="this_book.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="languages.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="history.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -197,33 +198,17 @@ If ypu want threads on the bare metal you will end up implementing your own mini
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="this-book.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="this_book.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="languages.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="history.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 

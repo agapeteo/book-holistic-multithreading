@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="this-book.html"><strong aria-hidden="true">2.</strong> How this book is different</a></li><li class="chapter-item expanded "><a href="why.html"><strong aria-hidden="true">3.</strong> Why multithreading is important</a></li><li class="chapter-item expanded "><a href="languages.html"><strong aria-hidden="true">4.</strong> Langiages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="java.html"><strong aria-hidden="true">4.1.</strong> Java</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="this_book.html"><strong aria-hidden="true">1.1.</strong> How this book is different</a></li><li class="chapter-item expanded "><a href="why.html"><strong aria-hidden="true">1.2.</strong> Why multithreading is important</a></li><li class="chapter-item expanded "><a href="history.html"><strong aria-hidden="true">1.3.</strong> A brief history of thread</a></li></ol></li><li class="chapter-item expanded "><a href="languages.html"><strong aria-hidden="true">2.</strong> Concurrency and multithreading in practical languages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="java.html"><strong aria-hidden="true">2.1.</strong> Java</a></li><li class="chapter-item expanded "><a href="c.html"><strong aria-hidden="true">2.2.</strong> C</a></li><li class="chapter-item expanded "><a href="c++.html"><strong aria-hidden="true">2.3.</strong> C++</a></li><li class="chapter-item expanded "><a href="rust.html"><strong aria-hidden="true">2.4.</strong> Rust</a></li><li class="chapter-item expanded "><a href="golang.html"><strong aria-hidden="true">2.5.</strong> Go</a></li><li class="chapter-item expanded "><a href="python.html"><strong aria-hidden="true">2.6.</strong> Python</a></li><li class="chapter-item expanded "><a href="javascript.html"><strong aria-hidden="true">2.7.</strong> JavaScript</a></li></ol></li><li class="chapter-item expanded "><a href="threads_under_the_hood.html"><strong aria-hidden="true">3.</strong> Threads under the hood</a></li><li class="chapter-item expanded "><a href="critical_section.html"><strong aria-hidden="true">4.</strong> Critical section</a></li><li class="chapter-item expanded "><a href="atomics.html"><strong aria-hidden="true">5.</strong> Atimics and memory fences</a></li><li class="chapter-item expanded "><a href="communication.html"><strong aria-hidden="true">6.</strong> Thread communication</a></li><li class="chapter-item expanded "><a href="deadlocks.html"><strong aria-hidden="true">7.</strong> Deadlocks and live locks</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">8.</strong> Coroutines and async programming</a></li><li class="chapter-item expanded "><a href="testing.html"><strong aria-hidden="true">9.</strong> Debugging and testing</a></li><li class="chapter-item expanded "><a href="best_practices.html"><strong aria-hidden="true">10.</strong> Best practices</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -158,7 +158,10 @@ abstraction. What we have to understand just as well is the language support for
 python), i.e. how these abstractions are implemented by our language of choice. But even that is not all. Another important aspect is what is going
 on in the virtual machine, if any, and in the operating system. What is done at the level of assembly, and last but not least, what is happening in
 the CPU itself.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>#TODO</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="how-this-book-is-different"><a class="header" href="#how-this-book-is-different">How this book is different</a></h1>
+<blockquote>
+<p>TODO</p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="purpose"><a class="header" href="#purpose">Purpose</a></h1>
 <p>Multithreading from top to bottom. From abstractions like concurrent hash maps to assembler instructions.
 General narrative when introducing a new concept: how and why this concept came to be.
@@ -172,6 +175,7 @@ We also assume that you have a basic knowledge of Java, C, C++, or Rust.</p>
 <li>On the language level;</li>
 <li>On the OS level;</li>
 <li>On the hardware level.</li>
+<li>Sometimes you're using thread even when you are not aware of it. (Servlets example)</li>
 </ul>
 <p>The rest of the books is just a deeper and broader exploration of what we have just covered.</p>
 <h1 id="theory"><a class="header" href="#theory">Theory</a></h1>
@@ -196,8 +200,89 @@ If ypu want threads on the bare metal you will end up implementing your own mini
 <p>Java, C, C++, Rust, JS/Python (only to critisize their lack of comprehensive threading support).</p>
 <h1 id="test-hardware"><a class="header" href="#test-hardware">Test Hardware</a></h1>
 <p>MBP Pro, Raspberry Pi, Pine64 SBC.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="a-brief-history-of-thread"><a class="header" href="#a-brief-history-of-thread">A brief history of thread</a></h1>
+<ul>
+<li>History of thread</li>
+<li>What is thread </li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><p>#TODO</p>
 <div style="break-before: page; page-break-before: always;"></div><p>#TODO</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="c"><a class="header" href="#c">C</a></h1>
+<blockquote>
+<p>TODO</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="c-1"><a class="header" href="#c-1">C++</a></h1>
+<blockquote>
+<p>TODO</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="go-language"><a class="header" href="#go-language">Go language</a></h1>
+<blockquote>
+<p>TOOD</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="threads-under-the-hood"><a class="header" href="#threads-under-the-hood">Threads under the hood</a></h1>
+<ul>
+<li>sort file without joining. note on main thread</li>
+<li>sort file with joining and mutex and going deep:
+<ul>
+<li>language level</li>
+<li>compiler level</li>
+<li>assembly level</li>
+<li>operating system level</li>
+<li>cpu level</li>
+<li>same example in Assembly</li>
+<li>summary</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="critical-section"><a class="header" href="#critical-section">Critical section</a></h1>
+<ul>
+<li>we're protecting data, not code</li>
+<li>Mutex types</li>
+<li>spin lock under hood... (all levels)
+<ul>
+<li>atomic operation overview</li>
+</ul>
+</li>
+<li>lock with help of cpu... (all levels)
+<ul>
+<li>futex</li>
+</ul>
+</li>
+<li>lock types, semaphores</li>
+<li>let's check performance</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="atomics-and-memory-fences"><a class="header" href="#atomics-and-memory-fences">Atomics and memory fences</a></h1>
+<ul>
+<li>why Peterson's solution doesn't work with my PC</li>
+<li>cpu cache coherance</li>
+<li>ordering</li>
+<li>perf check overview</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="thread-communications"><a class="header" href="#thread-communications">Thread communications</a></h1>
+<ul>
+<li>condvar going deep</li>
+<li>wait groups</li>
+<li>channels</li>
+<li>actors</li>
+<li>accumulator example</li>
+<li>queues and other data structures</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="deadlocks-and-live-locks"><a class="header" href="#deadlocks-and-live-locks">Deadlocks and live locks</a></h1>
+<blockquote>
+<p>TOOD</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="coroutines-and-async-programming"><a class="header" href="#coroutines-and-async-programming">Coroutines and async programming</a></h1>
+<blockquote>
+<p>TODO</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="debugging-and-testing"><a class="header" href="#debugging-and-testing">Debugging and testing</a></h1>
+<blockquote>
+<p>TOOD</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="best-practices"><a class="header" href="#best-practices">Best practices</a></h1>
+<blockquote>
+<p>TODO</p>
+</blockquote>
 
                     </main>
 
@@ -216,22 +301,6 @@ If ypu want threads on the bare metal you will end up implementing your own mini
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 

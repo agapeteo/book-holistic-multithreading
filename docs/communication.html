@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Introduction - Holistic multithreading</title>
+        <title>Thread communication - Holistic multithreading</title>
 
 
         <!-- Custom HTML head -->
@@ -80,7 +80,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html" class="active"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="this_book.html"><strong aria-hidden="true">1.1.</strong> How this book is different</a></li><li class="chapter-item expanded "><a href="why.html"><strong aria-hidden="true">1.2.</strong> Why multithreading is important</a></li><li class="chapter-item expanded "><a href="history.html"><strong aria-hidden="true">1.3.</strong> A brief history of thread</a></li></ol></li><li class="chapter-item expanded "><a href="languages.html"><strong aria-hidden="true">2.</strong> Concurrency and multithreading in practical languages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="java.html"><strong aria-hidden="true">2.1.</strong> Java</a></li><li class="chapter-item expanded "><a href="c.html"><strong aria-hidden="true">2.2.</strong> C</a></li><li class="chapter-item expanded "><a href="c++.html"><strong aria-hidden="true">2.3.</strong> C++</a></li><li class="chapter-item expanded "><a href="rust.html"><strong aria-hidden="true">2.4.</strong> Rust</a></li><li class="chapter-item expanded "><a href="golang.html"><strong aria-hidden="true">2.5.</strong> Go</a></li><li class="chapter-item expanded "><a href="python.html"><strong aria-hidden="true">2.6.</strong> Python</a></li><li class="chapter-item expanded "><a href="javascript.html"><strong aria-hidden="true">2.7.</strong> JavaScript</a></li></ol></li><li class="chapter-item expanded "><a href="threads_under_the_hood.html"><strong aria-hidden="true">3.</strong> Threads under the hood</a></li><li class="chapter-item expanded "><a href="critical_section.html"><strong aria-hidden="true">4.</strong> Critical section</a></li><li class="chapter-item expanded "><a href="atomics.html"><strong aria-hidden="true">5.</strong> Atimics and memory fences</a></li><li class="chapter-item expanded "><a href="communication.html"><strong aria-hidden="true">6.</strong> Thread communication</a></li><li class="chapter-item expanded "><a href="deadlocks.html"><strong aria-hidden="true">7.</strong> Deadlocks and live locks</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">8.</strong> Coroutines and async programming</a></li><li class="chapter-item expanded "><a href="testing.html"><strong aria-hidden="true">9.</strong> Debugging and testing</a></li><li class="chapter-item expanded "><a href="best_practices.html"><strong aria-hidden="true">10.</strong> Best practices</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="this_book.html"><strong aria-hidden="true">1.1.</strong> How this book is different</a></li><li class="chapter-item expanded "><a href="why.html"><strong aria-hidden="true">1.2.</strong> Why multithreading is important</a></li><li class="chapter-item expanded "><a href="history.html"><strong aria-hidden="true">1.3.</strong> A brief history of thread</a></li></ol></li><li class="chapter-item expanded "><a href="languages.html"><strong aria-hidden="true">2.</strong> Concurrency and multithreading in practical languages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="java.html"><strong aria-hidden="true">2.1.</strong> Java</a></li><li class="chapter-item expanded "><a href="c.html"><strong aria-hidden="true">2.2.</strong> C</a></li><li class="chapter-item expanded "><a href="c++.html"><strong aria-hidden="true">2.3.</strong> C++</a></li><li class="chapter-item expanded "><a href="rust.html"><strong aria-hidden="true">2.4.</strong> Rust</a></li><li class="chapter-item expanded "><a href="golang.html"><strong aria-hidden="true">2.5.</strong> Go</a></li><li class="chapter-item expanded "><a href="python.html"><strong aria-hidden="true">2.6.</strong> Python</a></li><li class="chapter-item expanded "><a href="javascript.html"><strong aria-hidden="true">2.7.</strong> JavaScript</a></li></ol></li><li class="chapter-item expanded "><a href="threads_under_the_hood.html"><strong aria-hidden="true">3.</strong> Threads under the hood</a></li><li class="chapter-item expanded "><a href="critical_section.html"><strong aria-hidden="true">4.</strong> Critical section</a></li><li class="chapter-item expanded "><a href="atomics.html"><strong aria-hidden="true">5.</strong> Atimics and memory fences</a></li><li class="chapter-item expanded "><a href="communication.html" class="active"><strong aria-hidden="true">6.</strong> Thread communication</a></li><li class="chapter-item expanded "><a href="deadlocks.html"><strong aria-hidden="true">7.</strong> Deadlocks and live locks</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">8.</strong> Coroutines and async programming</a></li><li class="chapter-item expanded "><a href="testing.html"><strong aria-hidden="true">9.</strong> Debugging and testing</a></li><li class="chapter-item expanded "><a href="best_practices.html"><strong aria-hidden="true">10.</strong> Best practices</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -141,29 +141,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>The history of computing is a constant struggle for efficiency. From the first machine to the first operating systems to the multicore processors and
-modern operating systems. Concurrency emerged to make resource use more efficient. It has also shaped modern operating systems and hardware along the
-way.</p>
-<p>As the hardware evolves, we can hope to solve more computationally intense problems faster. And we definitely see the impact this hope has on the
-industry with the proliferation of javascript and python solutions almost everywhere: from desktop with frameworks like electron, to server side with
-node.js, to even MCUs and the IoT with micropython. These solutions are far from being efficient in their resource use.</p>
-<p>But there is a twist thanks to a thing called Moore's Law, or more precisely, to its end. Of course, we can argue about the end of Moore's Law, but
-the facts are clear: it is getting harder to simply add transistors to a chip. It is also clear that the evolution of processors has shifted towards
-multicore systems. So to make software more efficient and to take full advantage of the multicore CPUs, we have to employ concurrent algorithms. And
-to do it effectively, we need to understand how concurrency works.</p>
-<p>For this we have to understand relevant abstractions of computer science. But that is not it unfortunately, as we're dealing with a case of a leaky
-abstraction. What we have to understand just as well is the language support for concurrency (or lack thereof, as is the case with javascript and
-python), i.e. how these abstractions are implemented by our language of choice. But even that is not all. Another important aspect is what is going
-on in the virtual machine, if any, and in the operating system. What is done at the level of assembly, and last but not least, what is happening in
-the CPU itself.</p>
+                        <h1 id="thread-communications"><a class="header" href="#thread-communications">Thread communications</a></h1>
+<ul>
+<li>condvar going deep</li>
+<li>wait groups</li>
+<li>channels</li>
+<li>actors</li>
+<li>accumulator example</li>
+<li>queues and other data structures</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="atomics.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
-                            <a rel="next" href="this_book.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="deadlocks.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -173,8 +169,11 @@ the CPU itself.</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="atomics.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
-                    <a rel="next" href="this_book.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="deadlocks.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

@@ -16,6 +16,7 @@ A simple example with one or two threads. What happens:
 * On the language level;
 * On the OS level;
 * On the hardware level.
+* Sometimes you're using thread even when you are not aware of it. (Servlets example)
 
 The rest of the books is just a deeper and broader exploration of what we have just covered.
 
