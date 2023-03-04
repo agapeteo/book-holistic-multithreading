@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="this_book.html"><strong aria-hidden="true">1.1.</strong> How this book is different</a></li><li class="chapter-item expanded "><a href="why.html"><strong aria-hidden="true">1.2.</strong> Why multithreading is important</a></li><li class="chapter-item expanded "><a href="history.html"><strong aria-hidden="true">1.3.</strong> A brief history of thread</a></li></ol></li><li class="chapter-item expanded "><a href="languages.html"><strong aria-hidden="true">2.</strong> Concurrency and multithreading in practical languages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="java.html"><strong aria-hidden="true">2.1.</strong> Java</a></li><li class="chapter-item expanded "><a href="c.html"><strong aria-hidden="true">2.2.</strong> C</a></li><li class="chapter-item expanded "><a href="c++.html"><strong aria-hidden="true">2.3.</strong> C++</a></li><li class="chapter-item expanded "><a href="rust.html"><strong aria-hidden="true">2.4.</strong> Rust</a></li><li class="chapter-item expanded "><a href="golang.html"><strong aria-hidden="true">2.5.</strong> Go</a></li><li class="chapter-item expanded "><a href="python.html"><strong aria-hidden="true">2.6.</strong> Python</a></li><li class="chapter-item expanded "><a href="javascript.html"><strong aria-hidden="true">2.7.</strong> JavaScript</a></li></ol></li><li class="chapter-item expanded "><a href="threads_under_the_hood.html"><strong aria-hidden="true">3.</strong> Threads under the hood</a></li><li class="chapter-item expanded "><a href="critical_section.html"><strong aria-hidden="true">4.</strong> Critical section</a></li><li class="chapter-item expanded "><a href="atomics.html"><strong aria-hidden="true">5.</strong> Atimics and memory fences</a></li><li class="chapter-item expanded "><a href="communication.html"><strong aria-hidden="true">6.</strong> Thread communication</a></li><li class="chapter-item expanded "><a href="deadlocks.html"><strong aria-hidden="true">7.</strong> Deadlocks and live locks</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">8.</strong> Coroutines and async programming</a></li><li class="chapter-item expanded "><a href="testing.html"><strong aria-hidden="true">9.</strong> Debugging and testing</a></li><li class="chapter-item expanded "><a href="best_practices.html"><strong aria-hidden="true">10.</strong> Best practices</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="this_book.html"><strong aria-hidden="true">1.1.</strong> How this book is different</a></li><li class="chapter-item expanded "><a href="why.html"><strong aria-hidden="true">1.2.</strong> Why multithreading is important</a></li><li class="chapter-item expanded "><a href="history.html"><strong aria-hidden="true">1.3.</strong> A brief history of thread</a></li></ol></li><li class="chapter-item expanded "><a href="languages.html"><strong aria-hidden="true">2.</strong> Concurrency and multithreading in practical languages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="java.html"><strong aria-hidden="true">2.1.</strong> Java</a></li><li class="chapter-item expanded "><a href="c.html"><strong aria-hidden="true">2.2.</strong> C</a></li><li class="chapter-item expanded "><a href="c++.html"><strong aria-hidden="true">2.3.</strong> C++</a></li><li class="chapter-item expanded "><a href="rust.html"><strong aria-hidden="true">2.4.</strong> Rust</a></li><li class="chapter-item expanded "><a href="golang.html"><strong aria-hidden="true">2.5.</strong> Go</a></li><li class="chapter-item expanded "><a href="python.html"><strong aria-hidden="true">2.6.</strong> Python</a></li><li class="chapter-item expanded "><a href="javascript.html"><strong aria-hidden="true">2.7.</strong> JavaScript</a></li></ol></li><li class="chapter-item expanded "><a href="threads_under_the_hood.html"><strong aria-hidden="true">3.</strong> Threads under the hood</a></li><li class="chapter-item expanded "><a href="critical_section.html"><strong aria-hidden="true">4.</strong> Critical section</a></li><li class="chapter-item expanded "><a href="atomics.html"><strong aria-hidden="true">5.</strong> Atimics and memory fences</a></li><li class="chapter-item expanded "><a href="communication.html"><strong aria-hidden="true">6.</strong> Thread communication</a></li><li class="chapter-item expanded "><a href="deadlocks.html"><strong aria-hidden="true">7.</strong> Deadlocks and live locks</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">8.</strong> Coroutines and async programming</a></li><li class="chapter-item expanded "><a href="testing.html"><strong aria-hidden="true">9.</strong> Debugging and testing</a></li><li class="chapter-item expanded "><a href="best_practices.html"><strong aria-hidden="true">10.</strong> Best practices</a></li><li class="chapter-item expanded "><a href="threads_brainstorm.html"><strong aria-hidden="true">11.</strong> Brainstorm</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -234,23 +234,72 @@ If ypu want threads on the bare metal you will end up implementing your own mini
 </ul>
 </li>
 </ul>
+<blockquote>
+<p>TODO: add note about thread cancellation</p>
+</blockquote>
+<p>from The Linux programming interface:</p>
+<blockquote>
+<p>The execution of a thread terminates in one of the following ways:</p>
+</blockquote>
+<p>• The thread’s start function performs a return specifying a return value for the thread.</p>
+<p>• The thread calls pthread_exit() (described below).</p>
+<p>• The thread is canceled using pthread_cancel() (described in Section 32.1).</p>
+<p>• Any of the threads calls exit(), or the main thread performs a return (in the main() function), which causes all threads in the process to terminate immediately.</p>
+<p>include &lt;pthread.h&gt;</p>
+<p>void pthread_exit(void *retval);</p>
+<p>Calling pthread_exit() is equivalent to performing a return in the thread’s start function, with the difference that pthread_exit() can be called from any function that has been called by the thread’s start function.</p>
+<p>The retval argument specifies the return value for the thread. The value pointed to by retval should not be located on the thread’s stack, since the contents of that stack become undefined on thread termination. (For example, that region of the process’s virtual memory might be immediately reused by the stack for a new thread.) The same statement applies to the value given to a return statement in the thread’s start function.</p>
+<p>The pthread_exit() function terminates the calling thread, and specifies a return value that can be obtained in another thread by calling pthread_join().</p>
+<blockquote>
+<p>If the main thread calls pthread_exit() instead of calling exit()
+or performing a return, then the other threads continue to execute.</p>
+</blockquote>
+<blockquote>
+<p>TODO: add notice about hazard pointers and similar?</p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="critical-section"><a class="header" href="#critical-section">Critical section</a></h1>
 <ul>
-<li>we're protecting data, not code</li>
-<li>Mutex types</li>
-<li>spin lock under hood... (all levels)
+<li>
+<p>we're protecting data, not code</p>
+</li>
+<li>
+<p>Mutex types</p>
+</li>
+<li>
+<p>spin lock under hood... (all levels)</p>
 <ul>
 <li>atomic operation overview</li>
 </ul>
 </li>
-<li>lock with help of cpu... (all levels)
+<li>
+<p>lock with help of cpu... (all levels)</p>
 <ul>
 <li>futex</li>
 </ul>
 </li>
-<li>lock types, semaphores</li>
-<li>let's check performance</li>
+<li>
+<p>lock types, semaphores</p>
+</li>
+<li>
+<p>let's check performance</p>
+</li>
+<li>
+<p>note on adaptive locking (Java, Rust)</p>
+</li>
 </ul>
+<blockquote>
+<p>TODO mention transactinal memory annd lack of it 
+https://en.wikipedia.org/wiki/Transactional_Synchronization_Extensions</p>
+</blockquote>
+<blockquote>
+<p>futex in Different OSs https://shift.click/blog/futex-like-apis/</p>
+</blockquote>
+<blockquote>
+<p>TODO <a href="https://webkit.org/blog/6161/locking-in-webkit/">WebKit locks implementation using parking lot approach</a></p>
+</blockquote>
+<blockquote>
+<p>TODO <a href="https://www.kernel.org/doc/ols/2002/ols2002-pages-479-495.pdf">Fuss, Futexes and Furwocks: Fast Userlevel Locking in Linux</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="atomics-and-memory-fences"><a class="header" href="#atomics-and-memory-fences">Atomics and memory fences</a></h1>
 <ul>
 <li>why Peterson's solution doesn't work with my PC</li>
@@ -258,6 +307,29 @@ If ypu want threads on the bare metal you will end up implementing your own mini
 <li>ordering</li>
 <li>perf check overview</li>
 </ul>
+<blockquote>
+<p>TODO: add atomic problems like false sharing and cache ping-pong</p>
+</blockquote>
+<h3 id="volatile"><a class="header" href="#volatile">volatile</a></h3>
+<p><code>volatile</code> keyword has a different meaning for Java and C/C++.
+C and C++ usually don't use <code>volatile</code> for memory ordering guarantees, except some rare cases like mamory-mapped IO.
+volatile may help prevennting reordering with other volatile variable, but not with non-volatile variable.
+So it is recommended to use locks and atomics instead. 
+<a href="https://www.kernel.org/doc/html/latest/process/volatile-considered-harmful.html">See why valatile considered harmful in Linux kernel</a></p>
+<p>Java uses <code>volatile</code> for some memory ordrering guarantees, see <a href="https://download.oracle.com/otndocs/jcp/memory_model-1.0-pfd-spec-oth-JSpec/">JSR-133</a></p>
+<p>Rust and Go don't have <code>volatile</code> variables at all. These langauages propose using reads and writes functions.</p>
+<h3 id="etc"><a class="header" href="#etc">etc</a></h3>
+<blockquote>
+<p>TODO: blog post on write bufferes https://paulcavallaro.com/blog/x86-tso-a-programmers-model-for-x86-multiprocessors/
+<a href="https://www.cl.cam.ac.uk/~pes20/weakmemory/cacm.pdf">whitepaper which blog is referenncing to on write buffers</a></p>
+</blockquote>
+<p><a href="https://en.wikipedia.org/wiki/MESI_protocol">https://en.wikipedia.org/wiki/MESI_protocol</a></p>
+<p><a href="http://hps.ece.utexas.edu/people/suleman/class_projects/pca_report.pdf">An Evaluation of Snoop-Based Cache Coherence Protocols, whitepaper</a></p>
+<p><a href="https://yarchive.net/comp/linux/store_buffer.html">! Linus Torvarld on write buffers issue note</a></p>
+<h3 id="mesi-visual-interactive"><a class="header" href="#mesi-visual-interactive">MESI visual interactive</a></h3>
+<p><a href="https://www.scss.tcd.ie/Jeremy.Jones/vivio/caches/MESIHelp.htm">https://www.scss.tcd.ie/Jeremy.Jones/vivio/caches/MESIHelp.htm</a></p>
+<h3 id="not-sure-if-i-should-include-next-refereces-todo-check-and-decide"><a class="header" href="#not-sure-if-i-should-include-next-refereces-todo-check-and-decide">not sure if I should include next refereces. TODO: check and decide</a></h3>
+<p><a href="http://hps.ece.utexas.edu/people/suleman/class_projects/pca_report.pdf">An Evaluation of Snoop-Based Cache Coherence Protocols, whitepaper</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="thread-communications"><a class="header" href="#thread-communications">Thread communications</a></h1>
 <ul>
 <li>condvar going deep</li>
@@ -283,6 +355,91 @@ If ypu want threads on the bare metal you will end up implementing your own mini
 <blockquote>
 <p>TODO</p>
 </blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="threads-under-the-hood-brainstorming"><a class="header" href="#threads-under-the-hood-brainstorming">Threads under the hood brainstorming</a></h1>
+<h2 id="why-multithreading"><a class="header" href="#why-multithreading">Why multithreading</a></h2>
+<ul>
+<li>
+<p>why you reading thi book</p>
+</li>
+<li>
+<p>speed and efficiency</p>
+</li>
+<li>
+<p>Moor's law</p>
+</li>
+<li>
+<p>why clock rate is not growing that fast</p>
+</li>
+<li>
+<p>cost</p>
+</li>
+<li>
+<p>heat and power concumption</p>
+</li>
+<li>
+<p>Amdahl's law</p>
+</li>
+</ul>
+<h2 id="thread-history"><a class="header" href="#thread-history">Thread history</a></h2>
+<p>3 original authors. 
+from multiprogramming operating systems to multithreaded applications</p>
+<h2 id="applications-processes-and-threads"><a class="header" href="#applications-processes-and-threads">Applications, processes and threads</a></h2>
+<ul>
+<li>what is application, </li>
+<li>group of thats that help to archive some goal</li>
+<li>application can run one or more processes on a single or multiple computers. </li>
+</ul>
+<p>TODO langages and code
+Application -&gt; tasks -&gt; algorithms &amp; data structures -&gt; code -&gt; languages</p>
+<p>Operating systems are about effectively running appolications on the given hardware.
+Effectly could also mean
+?? what is OS
+That's why operating system may represent application as a runing process. 
+OS limits what process can do, but in returns it gives greater flexibility and effency overall.</p>
+<p>Process is the means by which Operating Systems runs application.
+Strickly speacking, Operation System is not mandatory to run multiple processes. For example in amberdded hardware.
+But you still need to schedule processes somehow, so you need at least a scheduler to manage multiple processes.</p>
+<p>Creating a process is complex task that includes:</p>
+<ul>
+<li>finding and allocting memory</li>
+<li>etc.. TODO</li>
+<li>TODO</li>
+</ul>
+<p>it's not even an exhastive list</p>
+<p>But there is another OS abtraction that can significantly simplify the way we can execute code on a given cpu - 
+THREADS
+T
+THREADS ARE</p>
+<p>-- responsibility OS</p>
+<p>safety
+resources 
+memory</p>
+<p>memory types
+code - data</p>
+<p>stack
+memory segments</p>
+<p>Each thread own stack, registers, but everyhting else is shared</p>
+<p>compiled application format for OS - ELF, ...</p>
+<p>preemtive, cooperative</p>
+<p>OS CPU allocation </p>
+<p>--- hardware --</p>
+<p>cpu structure</p>
+<p>ISA &amp; mictoarchitecture separation</p>
+<p>slow memory</p>
+<p>code reordering</p>
+<hr />
+<p>example</p>
+<p>Java thread withot join, with join
+bytecote -&gt; JVM -&gt; clib, pthread -&gt; ELF </p>
+<p>C example with phread
+C++ woth thread -&gt; pthread, glibc or musl, nptl, ....</p>
+<p>Go and friends</p>
+<p>RUST</p>
+<p>strace CLONE, FUTEX</p>
+<p>?? pthread cancellation </p>
+<p>assembly snippet</p>
+<hr />
+<p>--- THREAD anaylogy probably with baristas</p>
 
                     </main>
 
