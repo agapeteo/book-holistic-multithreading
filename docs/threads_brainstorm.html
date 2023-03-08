@@ -144,14 +144,29 @@
                         <h1 id="threads-under-the-hood-brainstorming"><a class="header" href="#threads-under-the-hood-brainstorming">Threads under the hood brainstorming</a></h1>
 <h2 id="why-multithreading"><a class="header" href="#why-multithreading">Why multithreading</a></h2>
 <ul>
-<li>
-<p>why you reading thi book</p>
-</li>
+<li>why are you reading this book?</li>
+</ul>
+<h2 id="applications-processes-and-threads"><a class="header" href="#applications-processes-and-threads">Applications, processes and threads</a></h2>
+<ul>
+<li>what is application, </li>
+<li>group of tasks that help to archive some goal</li>
+<li>application can run one or more processes on a single or multiple computers. </li>
+</ul>
+<p>TODO languages and code
+Application -&gt; tasks -&gt; algorithms &amp; data structures -&gt; code -&gt; languages</p>
+<p>Applications consist of structure or sequence of tasks. Tasks are solved by applying algorithms to data structures.
+Algorithms and data structures are represented with programming languages, which translate human concepts into binary machine code of specific hardware.
+As you have probably noticed, we've described a chain of abstractions. Let's make a brief detour and discuss what is an abstraction.
+Abstraction is notion that separates something generic (general) from specific. Why would we need that?
+It helps us recognize and apply patterns to a group of notions while ignoring unrelated details. When some details become relevant, an abstraction becomes leaky.
+We have noticed that threads are often described with leaky abstractions. They can work on some level of analysis, but inevitably break down...</p>
+<h2 id="why-use-threads"><a class="header" href="#why-use-threads">Why use threads?</a></h2>
+<ul>
 <li>
 <p>speed and efficiency</p>
 </li>
 <li>
-<p>Moor's law</p>
+<p>Moore's law</p>
 </li>
 <li>
 <p>why clock rate is not growing that fast</p>
@@ -160,7 +175,7 @@
 <p>cost</p>
 </li>
 <li>
-<p>heat and power concumption</p>
+<p>heat and power consumption</p>
 </li>
 <li>
 <p>Amdahl's law</p>
@@ -169,21 +184,13 @@
 <h2 id="thread-history"><a class="header" href="#thread-history">Thread history</a></h2>
 <p>3 original authors. 
 from multiprogramming operating systems to multithreaded applications</p>
-<h2 id="applications-processes-and-threads"><a class="header" href="#applications-processes-and-threads">Applications, processes and threads</a></h2>
-<ul>
-<li>what is application, </li>
-<li>group of thats that help to archive some goal</li>
-<li>application can run one or more processes on a single or multiple computers. </li>
-</ul>
-<p>TODO langages and code
-Application -&gt; tasks -&gt; algorithms &amp; data structures -&gt; code -&gt; languages</p>
-<p>Operating systems are about effectively running appolications on the given hardware.
-Effectly could also mean
+<p>Operating systems are about effectively running applications on the given hardware.
+Effectively could also mean
 ?? what is OS
 That's why operating system may represent application as a runing process. 
 OS limits what process can do, but in returns it gives greater flexibility and effency overall.</p>
 <p>Process is the means by which Operating Systems runs application.
-Strickly speacking, Operation System is not mandatory to run multiple processes. For example in amberdded hardware.
+Stricktly speaking, Operation System is not mandatory to run multiple processes. For example in amberdded hardware.
 But you still need to schedule processes somehow, so you need at least a scheduler to manage multiple processes.</p>
 <p>Creating a process is complex task that includes:</p>
 <ul>
@@ -250,6 +257,22 @@ C++ woth thread -&gt; pthread, glibc or musl, nptl, ....</p>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

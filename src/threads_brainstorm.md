@@ -2,12 +2,30 @@
 
 ## Why multithreading
 
-- why you reading thi book
+- why are you reading this book?
+
+## Applications, processes and threads
+
+- what is application, 
+- group of tasks that help to archive some goal
+- application can run one or more processes on a single or multiple computers. 
+
+TODO languages and code
+Application -> tasks -> algorithms & data structures -> code -> languages
+
+Applications consist of structure or sequence of tasks. Tasks are solved by applying algorithms to data structures.
+Algorithms and data structures are represented with programming languages, which translate human concepts into binary machine code of specific hardware.
+As you have probably noticed, we've described a chain of abstractions. Let's make a brief detour and discuss what is an abstraction.
+Abstraction is notion that separates something generic (general) from specific. Why would we need that?
+It helps us recognize and apply patterns to a group of notions while ignoring unrelated details. When some details become relevant, an abstraction becomes leaky.
+We have noticed that threads are often described with leaky abstractions. They can work on some level of analysis, but inevitably break down...
+
+## Why use threads?
 - speed and efficiency
-- Moor's law
+- Moore's law
 - why clock rate is not growing that fast
 - cost
-- heat and power concumption
+- heat and power consumption
 
 - Amdahl's law
 
@@ -16,24 +34,15 @@
 from multiprogramming operating systems to multithreaded applications
 
 
-## Applications, processes and threads
 
-- what is application, 
-- group of thats that help to archive some goal
-- application can run one or more processes on a single or multiple computers. 
-
-TODO langages and code
-Application -> tasks -> algorithms & data structures -> code -> languages
-
-
-Operating systems are about effectively running appolications on the given hardware.
-Effectly could also mean
+Operating systems are about effectively running applications on the given hardware.
+Effectively could also mean
 ?? what is OS
 That's why operating system may represent application as a runing process. 
 OS limits what process can do, but in returns it gives greater flexibility and effency overall.
 
 Process is the means by which Operating Systems runs application.
-Strickly speacking, Operation System is not mandatory to run multiple processes. For example in amberdded hardware.
+Stricktly speaking, Operation System is not mandatory to run multiple processes. For example in amberdded hardware.
 But you still need to schedule processes somehow, so you need at least a scheduler to manage multiple processes.
 
 Creating a process is complex task that includes:
