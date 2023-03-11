@@ -18,7 +18,7 @@ Algorithms and data structures are represented with programming languages, which
 As you have probably noticed, we've described a chain of abstractions. Let's make a brief detour and discuss what is an abstraction.
 Abstraction is notion that separates something generic (general) from specific. Why would we need that?
 It helps us recognize and apply patterns to a group of notions while ignoring unrelated details. When some details become relevant, an abstraction becomes leaky.
-We have noticed that threads are often described with leaky abstractions. They can work on some level of analysis, but inevitably break down...
+We have noticed that threads are often described with leaky abstractions. They can work at some level of analysis, but inevitably break down...
 
 ## Why use threads?
 - speed and efficiency
