@@ -4,6 +4,12 @@
 
 - why are you reading this book?
 
+History of computing through the lens of efficiency. From early operation systems to present day. You can use threads to use CPU efficiently.
+We can either create efficient software or keep wasting money on suboptimal algorithms. The choice is yours. You can safe the world from the farting cows and AOC.
+When we talk about history we talk about hardware, OS, and programming languages, how they evolved together and influenced one another.
+
+TODO: insert a graph of energy use by language.
+
 ## Applications, processes and threads
 
 - what is application, 
