@@ -17,6 +17,16 @@ History starting from task and hardware.
 Then new layers appeared, like languages, OS.
 
 But still need to solve stalls. new parallistm, but new problems like deadlocks etc.
+Languages chose different approaches: some limit access to multithreading facilities while others avoid altogether.
+Concurrent languages that are not parallel (Python, JS) vs concurrent languages that are parallel.
+So some languages avoid deadlocks by completely avoiding parallel execution. Python and friends lack granular access control to shared state.
+
+Even thread as a term does not describe the nature of the abstraction. Other terminology is awkward to say the least (like lock-free algorithms that are not lock free).
+Parallel, concurrent, async, coroutines, and non-blocking - people don't really understand the terms. Most regard them as synonyms.
+Hard to imagine what a coroutine means. What the heck is continuation? We will try to disentangle all of these for you using as simple terms as possible (illustrate with figures).
+Stackless coroutines - why are they stackless. And other confusing terms.
+
+We will use the Pareto principle - i.e. we will explain the things that are used the most in greater detail. 
 
 Formal multithreading by Dijstra and gang.
 
@@ -30,11 +40,13 @@ Electricity analogy.
 
 So what is thread? Abstraction and potentially leaky abstraction.
 
-
 Review of abstraction level in theory and then in practice.
 
 ---
 
+Your program is thread-safe when it has no shared state, but in this case it is unlikely to use hardware in the most efficient way.
+
+---
 
 History of computing through the lens of efficiency. From early operation systems to present day. You can use threads to use CPU efficiently.
 We can either create efficient software or keep wasting money on suboptimal algorithms. The choice is yours. You can safe the world from the farting cows and AOC.
