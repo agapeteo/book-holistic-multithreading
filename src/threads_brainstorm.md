@@ -4,6 +4,38 @@
 
 - why are you reading this book?
 
+- fill in knowledge gap
+
+
+
+- write apps more perfomant and efficient.
+
+Fortunatly, you're not alone or first....
+
+History starting from task and hardware.
+
+Then new layers appeared, like languages, OS.
+
+But still need to solve stalls. new parallistm, but new problems like deadlocks etc.
+
+Formal multithreading by Dijstra and gang.
+
+same hardware imrovemnet, but hardware limits. + Moore's law
+
+Complexity dilema with 2 ways: not efficient, or learn multithreading.
+
+We prefer second option.
+
+Electricity analogy.
+
+So what is thread? Abstraction and potentially leaky abstraction.
+
+
+Review of abstraction level in theory and then in practice.
+
+---
+
+
 History of computing through the lens of efficiency. From early operation systems to present day. You can use threads to use CPU efficiently.
 We can either create efficient software or keep wasting money on suboptimal algorithms. The choice is yours. You can safe the world from the farting cows and AOC.
 When we talk about history we talk about hardware, OS, and programming languages, how they evolved together and influenced one another.
