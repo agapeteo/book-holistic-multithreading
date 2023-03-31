@@ -1,5 +1,18 @@
 # Atomics and memory fences
 
+going bottom up
+
+hardware
+- speed difference causes a lot of optimizations like prefetch, speculative execution, pipelining, reordering
+
+spatial and temporal locality are good practical reasons for caches. otherwise caches should cause opoosite effect (slowdown).
+
+superscalar - multiple instructions per cycle. takes into account instruction/address dependecies 
+cpi (cycles per instruction) = 1/ipc (instruction per cycle)
+SIMD - single instruction, multiple data
+
+special purpose hardware, for example GPU or multimendia decoders
+
 - why Peterson's solution doesn't work with my PC
 - cpu cache coherance
 - ordering
@@ -7,6 +20,7 @@
 
 
 > TODO: add atomic problems like false sharing and cache ping-pong
+
 
 
 ### volatile
