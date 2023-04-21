@@ -4,15 +4,14 @@
 
 - why are you reading this book?
 
+First we need to understand how to solve the problem: which tools are available, which ones are best suited for it, restrictions, infrastructure.
+
 - fill in knowledge gap
-
-
-
 - write apps more perfomant and efficient.
+- etc
 
 Fortunately, you're not alone or first....
 
-History starting from task and hardware.
 
 Then new layers appeared, like languages, OS.
 
@@ -41,12 +40,6 @@ Electricity analogy: it can kill you if you're careless or it can do a lot of wo
 So what is thread? Abstraction and potentially leaky abstraction.
 
 Review of abstraction level in theory and then in practice.
-
----
-
-Your program is thread-safe when it has no shared state, but in this case it is unlikely to use hardware in the most efficient way.
-
----
 
 History of computing through the lens of efficiency. From early operation systems to present day. You can use threads to use CPU efficiently.
 We can either create efficient software or keep wasting money on suboptimal algorithms. The choice is yours. You can safe the world from the farting cows and AOC.
@@ -78,6 +71,14 @@ Importance of separating of what to do from how to do it. Don't mix it up. Resis
 In other words, you should always understand what you are trying to achieve before you start thinking about the particular ways to achieve it.
 Requirements: business, functional, non-functional (SLA, throughput, latency, real-time, performance).
 
+
+## Why use threads?
+- speed and efficiency
+- Moore's law
+- why clock rate is not growing that fast
+- cost
+- heat and power consumption
+
 ### Architecture
 We need to understand high-level components of the system and their interactions without focusing on specifics of implementation. This is when we start considering
 some components as separate parallel nodes, processes, or threads. 
@@ -98,41 +99,21 @@ Compilers translate the human-readable code of the program into machine code in 
 It can also reorder instructions to optimize performance, which has its implications for multithreading.
 
 ### Operating system
+
+Operating systems are about effectively running applications on the given hardware.
+
 Most important part of the OS is its kernel, which manages access to the shared hardware. System calls - what vs how we do it. If we have system calls,
 we don't care about the particular implementation of the OS (where stable system calls are available).
 The concept of thread only exists within the OS. Threads are made possible by a scheduler and virtual memory. If you don't have an OS, you can still have threads, but you would
 have to at least implement your own scheduler and that's half way to OS itself.
 
+- todo: why operating systems uses concept of process (explain + ralation to scheduler)
+- todo: add more on process specific information (pid, parent pid, page table, environment, virtual memory, 'nice' priority, user, capabilities, current dir etc) 
+- todo: addd more on thread specific informaion
+
 Each thread has its own stack. How a thread differs from a process. Preemptive vs cooperative scheduling. Mapping software to hardware threads.
-TODO: Process memory segments. Thread vs process.
+TODO: Process memory segments. Thread vs process (program counter, stack(s) (see below), registers etc)
 
-### Assembly language
-Human readable version of machine code. You rarely need to write it but you have to know how to read it because it's a great way to understand what the CPU is actually doing.
-
-### CPU
-ISA vs hardware architecture. Clock rate. Accessing memory takes centuries, so we need caches. CPUs are optimized for single-threaded execution.
-Branch prediction, speculation, pipelining.
-
-First we need to understand how to solve the problem: which tools are available, which ones are best suited for it, restrictions, infrastructure.
-
-## Why use threads?
-- speed and efficiency
-- Moore's law
-- why clock rate is not growing that fast
-- cost
-- heat and power consumption
-
-- Amdahl's law
-
-## Thread history
-3 original authors. 
-from multiprogramming operating systems to multithreaded applications
-
-
-
-Operating systems are about effectively running applications on the given hardware.
-Effectively could also mean
-?? what is OS
 That's why operating system may represent application as a runing process. 
 OS limits what process can do, but in returns it gives greater flexibility and effency overall.
 
@@ -153,40 +134,41 @@ THREADS
 T
 THREADS ARE
 
+### Assembly language
 
--- responsibility OS
+Human readable version of machine code. You rarely need to write it but you have to know how to read it because it's a great way to understand what the CPU is actually doing.
 
-safety
-resources 
-memory
+### CPU
 
-memory types
-code - data
+ISA vs hardware architecture. Clock rate. Accessing memory takes centuries, so we need caches. CPUs are optimized for single-threaded execution.
+Branch prediction, speculation, pipelining.
 
-stack
-memory segments
+there are groups of instructions: arithmetic (add, multiply etc), comarisons (>, <, =), byte shifts, logical (and, or), store, load, branch (usually involves FLAG registers), 
+jumps (goto), sync (atomic), system interrupts (syscall)
 
-Each thread own stack, registers, but everyhting else is shared
+each instruction takes next clock cycles: fetch, decode, execute, write,
+can we fetch next instruction while executing decode or other instruction? yes pipelining
 
-compiled application format for OS - ELF, ...
+but pipelining still can has a hazard and stalls,
+so we can use branch prediction logic and also speculative executions
 
-preemtive, cooperative
+store and load are very slow, so we use caches.
+even we don't have caches we still may have race conditions with CPU (f.e DMA call)
 
-OS CPU allocation 
+more on caches in Atomics.
 
+Process build-in parallelism: pilpelineing ILP (logic parallelism) & SIMD (data parallelism)
 
---- hardware --
+what we can see is that CPU is very optimised for single thread execution, 
 
-cpu structure
-
-ISA & mictoarchitecture separation
-
-slow memory
+clock rate increasing non-liner energy use and heat (which is critical for mobile devises)
 
 
-code reordering
 
-------
+## let's check what we discussed in practice
+
+
+
 
 example
 
@@ -206,8 +188,12 @@ strace CLONE, FUTEX
 
 assembly snippet
 
-----
 
+---
+
+Your program is thread-safe when it has no shared state, but in this case it is unlikely to use hardware in the most efficient way.
+
+---
 
 --- THREAD anaylogy probably with baristas
 
