@@ -20,3 +20,5 @@ https://en.wikipedia.org/wiki/Transactional_Synchronization_Extensions
 > TODO [WebKit locks implementation using parking lot approach](https://webkit.org/blog/6161/locking-in-webkit/)
 
 > TODO [Fuss, Futexes and Furwocks: Fast Userlevel Locking in Linux](https://www.kernel.org/doc/ols/2002/ols2002-pages-479-495.pdf)
+
+> TODO Notes on thread local.

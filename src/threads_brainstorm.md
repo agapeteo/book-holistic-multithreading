@@ -197,7 +197,7 @@ Your program is thread-safe when it has no shared state, but in this case it is 
 
 --- THREAD anaylogy probably with baristas
 
-
+Notes on join and thread cancellation. 
 
 
 
